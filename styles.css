@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.main-title {
+  text-align: center;
+  color: #4169e1;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 20px 0 40px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+
+.soundboard-container {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-template-rows: repeat(5, 200px);
+  gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.sound-button {
+  width: 200px;
+  height: 200px;
+  background-color: #4169e1;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sound-button:hover {
+  background-color: #1e90ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sound-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.scorekeeper-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.score-table th,
+.score-table td {
+  border: 2px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.score-table th {
+  background-color: #4169e1;
+  color: white;
+  font-weight: bold;
+}
+
+.round-label {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  color: #333;
+}
+
+.player-name {
+  border: none;
+  background: transparent;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+  padding: 5px;
+}
+
+.player-name:focus {
+  outline: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.score-input {
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  width: 100%;
+  padding: 8px;
+  background: transparent;
+}
+
+.score-input:focus {
+  outline: 2px solid #4169e1;
+  background-color: #f0f8ff;
+}
+
+.total-row {
+  background-color: #e8f4fd;
+}
+
+.total-row .round-label {
+  background-color: #4169e1;
+  color: white;
+}
+
+.total-score {
+  font-weight: bold;
+  font-size: 18px;
+  color: #4169e1;
+  background-color: #f0f8ff;
+}
