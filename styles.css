@@ -25,7 +25,7 @@ body {
 .soundboard-container {
   display: grid;
   grid-template-columns: repeat(4, 200px);
-  grid-template-rows: repeat(5, 200px);
+  grid-template-rows: repeat(4, 200px);
   gap: 10px;
   justify-content: center;
   margin: 20px auto;
@@ -181,6 +181,34 @@ h1 {
   color: white;
   font-weight: bold;
   font-size: 14px;
+}
+
+.score-table th:nth-child(2) {
+  background-color: #dc143c; /* Crimson */
+}
+
+.score-table th:nth-child(3) {
+  background-color: #228b22; /* Forest Green */
+}
+
+.score-table th:nth-child(4) {
+  background-color: #ff8c00; /* Dark Orange */
+}
+
+.score-table th:nth-child(5) {
+  background-color: #9932cc; /* Dark Orchid */
+}
+
+.score-table th:nth-child(6) {
+  background-color: #008b8b; /* Dark Cyan */
+}
+
+.score-table th:nth-child(7) {
+  background-color: #b8860b; /* Dark Goldenrod */
+}
+
+.score-table th:nth-child(8) {
+  background-color: #8b008b; /* Dark Magenta */
 }
 
 .round-label {

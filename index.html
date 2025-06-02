@@ -10,26 +10,28 @@
     <h1 class="main-title">ULTIMATE MAY I APP</h1>
     <h1>Soundboard</h1>
     <div class="soundboard-container">
-      <button class="sound-button" onclick="playSound(1)">Sound 1</button>
-      <button class="sound-button" onclick="playSound(2)">Sound 2</button>
-      <button class="sound-button" onclick="playSound(3)">Sound 3</button>
-      <button class="sound-button" onclick="playSound(4)">Sound 4</button>
-      <button class="sound-button" onclick="playSound(5)">Sound 5</button>
-      <button class="sound-button" onclick="playSound(6)">Sound 6</button>
-      <button class="sound-button" onclick="playSound(7)">Sound 7</button>
-      <button class="sound-button" onclick="playSound(8)">Sound 8</button>
-      <button class="sound-button" onclick="playSound(9)">Sound 9</button>
-      <button class="sound-button" onclick="playSound(10)">Sound 10</button>
-      <button class="sound-button" onclick="playSound(11)">Sound 11</button>
-      <button class="sound-button" onclick="playSound(12)">Sound 12</button>
-      <button class="sound-button" onclick="playSound(13)">Sound 13</button>
-      <button class="sound-button" onclick="playSound(14)">Sound 14</button>
-      <button class="sound-button" onclick="playSound(15)">Sound 15</button>
-      <button class="sound-button" onclick="playSound(16)">Sound 16</button>
-      <button class="sound-button" onclick="playSound(17)">Sound 17</button>
-      <button class="sound-button" onclick="playSound(18)">Sound 18</button>
-      <button class="sound-button" onclick="playSound(19)">Sound 19</button>
-      <button class="sound-button" onclick="playSound(20)">Sound 20</button>
+      <button class="sound-button" onclick="playSound(1)">Air Horn</button>
+      <button class="sound-button" onclick="playSound(2)">Sad Trombone</button>
+      <button class="sound-button" onclick="playSound(3)">Billy Madison</button>
+      <button class="sound-button" onclick="playSound(4)">Jeopardy</button>
+      <button class="sound-button" onclick="playSound(5)">
+        I Can't Believe
+      </button>
+      <button class="sound-button" onclick="playSound(6)">Denied</button>
+      <button class="sound-button" onclick="playSound(7)">Wrong</button>
+      <button class="sound-button" onclick="playSound(8)">Game Over</button>
+      <button class="sound-button" onclick="playSound(9)">Suit Order</button>
+      <button class="sound-button" onclick="playSound(10)">Disturbed</button>
+      <button class="sound-button" onclick="playSound(11)">Danger</button>
+      <button class="sound-button" onclick="playSound(12)">
+        Michael Scott
+      </button>
+      <button class="sound-button" onclick="playSound(13)">Smash Bros.</button>
+      <button class="sound-button" onclick="playSound(14)">
+        You Can Do It!
+      </button>
+      <button class="sound-button" onclick="playSound(15)">Illegal</button>
+      <button class="sound-button" onclick="playSound(16)">We Got Him</button>
     </div>
 
     <h1>Scorekeeper</h1>
@@ -37,7 +39,9 @@
       <div class="dropdown-container">
         <label for="first-hand">First Hand:</label>
         <select id="first-hand" onchange="updateFirstHand(this.value)">
-          <option value="two-books-two-aces">Two Books, Two Aces</option>
+          <option value="two-books-two-aces" selected>
+            Two Books, Two Aces
+          </option>
           <option value="three-books">Three Books</option>
           <option value="two-books-and-run">Two Books and a Run</option>
         </select>
@@ -49,16 +53,16 @@
           <option value="5">5</option>
           <option value="6">6</option>
           <option value="7">7</option>
-          <option value="8">8</option>
+          <option value="8" selected>8</option>
         </select>
       </div>
     </div>
     <div class="scorekeeper-container">
       <div class="player-controls">
-        <button id="add-player-btn" onclick="addPlayer()">Add Player</button>
         <button id="remove-player-btn" onclick="removePlayer()">
           Remove Player
         </button>
+        <button id="add-player-btn" onclick="addPlayer()">Add Player</button>
         <span id="player-count">Players: 4</span>
       </div>
       <table class="score-table" id="score-table">

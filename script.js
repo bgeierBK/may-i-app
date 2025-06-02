@@ -17,7 +17,7 @@ let playerNames = [
 
 // Game settings
 let firstHandSetting = "two-books-two-aces";
-let numberOfHandsSetting = 4;
+let numberOfHandsSetting = 8;
 
 // May I hands progression
 const mayIHands = [
@@ -33,16 +33,32 @@ const mayIHands = [
 
 // Sound variables
 let sounds = {};
+let masterVolume = 0.7; // Master volume control (0.0 to 1.0)
 
-// Load sounds
-function loadSound(soundNumber, filePath) {
+// Load sounds with volume control
+function loadSound(soundNumber, filePath, volume = 1.0) {
   sounds[soundNumber] = new Audio(filePath);
+  sounds[soundNumber].baseVolume = volume; // Store individual volume
+  sounds[soundNumber].volume = volume * masterVolume; // Combine individual and master volume
 }
 
-// Initialize sounds
-loadSound(1, "Sounds/may-i-sound-1.mp3");
-loadSound(2, "Sounds/may-i-sound-2.mp3");
-loadSound(3, "Sounds/may-i-sound-3.mp3");
+// Initialize sounds with custom volumes
+loadSound(1, "Sounds/may-i-sound-1.mp3", 0.8);
+loadSound(2, "Sounds/may-i-sound-2.mp3", 1.0);
+loadSound(3, "Sounds/may-i-sound-3.mp3", 0.8);
+loadSound(4, "Sounds/may-i-sound-4.mp3", 0.8);
+loadSound(5, "Sounds/may-i-sound-5.mp3", 0.8);
+loadSound(6, "Sounds/may-i-sound-6.mp3", 0.8);
+loadSound(7, "Sounds/may-i-sound-7.mp3", 0.8);
+loadSound(8, "Sounds/may-i-sound-8.mp3", 0.8);
+loadSound(9, "Sounds/may-i-sound-9.mp3", 0.8);
+loadSound(10, "Sounds/may-i-sound-10.mp3", 0.8);
+loadSound(11, "Sounds/may-i-sound-11.mp3", 0.8);
+loadSound(12, "Sounds/may-i-sound-12.mp3", 0.8);
+loadSound(13, "Sounds/may-i-sound-13.mp3", 0.8);
+loadSound(14, "Sounds/may-i-sound-14.mp3", 0.8);
+loadSound(15, "Sounds/may-i-sound-15.mp3", 0.8);
+loadSound(16, "Sounds/may-i-sound-16.mp3", 0.8);
 
 function playSound(soundNumber) {
   if (sounds[soundNumber]) {
@@ -54,6 +70,15 @@ function playSound(soundNumber) {
   } else {
     console.log(`Sound ${soundNumber} not loaded yet`);
   }
+}
+
+// Function to adjust master volume
+function setMasterVolume(volume) {
+  masterVolume = volume;
+  // Update all loaded sounds
+  Object.values(sounds).forEach((sound) => {
+    sound.volume = sound.baseVolume * masterVolume;
+  });
 }
 
 function updatePlayerName(playerIndex, name) {
@@ -102,6 +127,7 @@ function updateNumberOfHands(value) {
 
 function updateNumberOfHandsOptions() {
   const numberOfHandsSelect = document.getElementById("number-of-hands");
+  const numberOfHandsContainer = numberOfHandsSelect.parentElement;
   const currentValue = numberOfHandsSelect.value;
 
   // Clear existing options
@@ -113,12 +139,15 @@ function updateNumberOfHandsOptions() {
   if (firstHandSetting === "two-books-two-aces") {
     minHands = 4;
     maxHands = 8;
+    numberOfHandsContainer.style.display = "flex"; // Show the dropdown
   } else if (firstHandSetting === "three-books") {
     minHands = 6;
     maxHands = 7;
+    numberOfHandsContainer.style.display = "flex"; // Show the dropdown
   } else if (firstHandSetting === "two-books-and-run") {
     minHands = 6;
     maxHands = 6;
+    numberOfHandsContainer.style.display = "none"; // Hide the dropdown
   }
 
   for (let i = minHands; i <= maxHands; i++) {
@@ -128,14 +157,9 @@ function updateNumberOfHandsOptions() {
     numberOfHandsSelect.appendChild(option);
   }
 
-  // Set the value to the current one if still valid, otherwise use the minimum
-  if (currentValue >= minHands && currentValue <= maxHands) {
-    numberOfHandsSelect.value = currentValue;
-    numberOfHandsSetting = parseInt(currentValue);
-  } else {
-    numberOfHandsSelect.value = minHands;
-    numberOfHandsSetting = minHands;
-  }
+  // Always default to the maximum possible hands
+  numberOfHandsSelect.value = maxHands;
+  numberOfHandsSetting = maxHands;
 }
 
 function updateHandLabels() {
