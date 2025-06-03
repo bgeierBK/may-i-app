@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>May I</title>
+    <title>Soundboard Buttons</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -75,6 +75,7 @@
                 class="player-name"
                 value="Player 1"
                 onchange="updatePlayerName(0, this.value)"
+                onclick="clearDefaultText(this)"
               />
             </th>
             <th>
@@ -83,6 +84,7 @@
                 class="player-name"
                 value="Player 2"
                 onchange="updatePlayerName(1, this.value)"
+                onclick="clearDefaultText(this)"
               />
             </th>
             <th>
@@ -91,6 +93,7 @@
                 class="player-name"
                 value="Player 3"
                 onchange="updatePlayerName(2, this.value)"
+                onclick="clearDefaultText(this)"
               />
             </th>
             <th>
@@ -99,6 +102,7 @@
                 class="player-name"
                 value="Player 4"
                 onchange="updatePlayerName(3, this.value)"
+                onclick="clearDefaultText(this)"
               />
             </th>
           </tr>
