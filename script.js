@@ -34,6 +34,7 @@ const mayIHands = [
 // Sound variables
 let sounds = {};
 let masterVolume = 0.7; // Master volume control (0.0 to 1.0)
+let currentlyPlaying = null; // Track currently playing sound
 
 // Load sounds with volume control
 function loadSound(soundNumber, filePath, volume = 1.0) {
@@ -61,12 +62,26 @@ loadSound(15, "Sounds/may-i-sound-15.mp3", 0.8);
 loadSound(16, "Sounds/may-i-sound-16.mp3", 0.8);
 
 function playSound(soundNumber) {
+  // Stop any currently playing sound
+  if (currentlyPlaying) {
+    currentlyPlaying.pause();
+    currentlyPlaying.currentTime = 0;
+  }
+
   if (sounds[soundNumber]) {
     // Reset to beginning and play
     sounds[soundNumber].currentTime = 0;
     sounds[soundNumber].play().catch((error) => {
       console.error(`Error playing sound ${soundNumber}:`, error);
     });
+
+    // Track this sound as currently playing
+    currentlyPlaying = sounds[soundNumber];
+
+    // Clear currentlyPlaying when sound ends
+    sounds[soundNumber].onended = function () {
+      currentlyPlaying = null;
+    };
   } else {
     console.log(`Sound ${soundNumber} not loaded yet`);
   }
