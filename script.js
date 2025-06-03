@@ -85,6 +85,13 @@ function updatePlayerName(playerIndex, name) {
   playerNames[playerIndex] = name;
 }
 
+function clearDefaultText(input) {
+  // Check if the input contains default text pattern
+  if (input.value.startsWith("Player ")) {
+    input.value = "";
+  }
+}
+
 function updateScore(round, player, value) {
   scores[round][player] = parseInt(value) || 0;
   calculateTotal(player);
@@ -234,7 +241,7 @@ function rebuildTable() {
   // Add player headers
   for (let i = 0; i < currentPlayerCount; i++) {
     const th = document.createElement("th");
-    th.innerHTML = `<input type="text" class="player-name" value="${playerNames[i]}" onchange="updatePlayerName(${i}, this.value)">`;
+    th.innerHTML = `<input type="text" class="player-name" value="${playerNames[i]}" onchange="updatePlayerName(${i}, this.value)" onclick="clearDefaultText(this)">`;
     headerRow.appendChild(th);
   }
 
